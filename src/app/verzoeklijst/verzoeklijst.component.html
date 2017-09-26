@@ -1,0 +1,31 @@
+
+
+<table>
+  <tr>
+    <th>Studentnummer</th>
+    <th>Voornaam</th>
+    <th>Achternaam</th>
+    <th>E-mailadres</th>
+    <th>Vakcode</th>
+    <th>Vaknaam</th>
+    <th>Motivatie</th>
+    <th>Status</th>
+  </tr>
+
+  <tr *ngFor="let verzoek of verzoeken">
+    <td>{{verzoek.studentId}}</td>
+    <td>{{ verzoek.firstname | doubleText }}</td>
+    <td>{{verzoek.lastname}}</td>
+    <td>{{verzoek.email}}</td>
+    <td>{{verzoek.courseId}}</td>
+    <td>{{verzoek.courseName}}</td>
+    <td>{{verzoek.motivation}}</td>
+    <td [ngSwitch]="verzoek.status">
+      <span *ngSwitchCase="verzoekstatussen.GOEDGEKEURD"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Goedgekeurd! </span>
+      <span *ngSwitchCase="verzoekstatussen.AFGEKEURD" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Helaas..! </span>
+      <span *ngSwitchCase="verzoekstatussen.PENDING" ><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Nog even geduld </span>
+      <span *ngSwitchDefault > Unknown: {{status}} </span>
+    </td>
+
+  </tr>
+</table>

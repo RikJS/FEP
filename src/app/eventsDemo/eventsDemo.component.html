@@ -1,0 +1,11 @@
+<div class="eventsDemo">
+  <input type="text" #textInput1 (keydown)="addToLog('Triggered')" (keydown.d)="addToLog('D pressed')">
+  <input type="text" #textInput2 (focus)="addToLog('Focus')" (blur)="addToLog('Blur')">
+  <input type="submit" value="submit" (click)="addToLog(textInput1.value+', '+textInput2.value)">
+  <div class="text" (click)="addToLog('Clicked on div')" (dblclick)="addToLog('Double clicked on div')">Hello World
+  </div>
+
+  <ul *ngFor="let log of logs">
+    <li>{{log}}</li>
+  </ul>
+</div>

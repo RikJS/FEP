@@ -1,0 +1,6 @@
+<div class="binding">
+  <input #input1 type="text" [value]="name">
+  <input #input2 type="text" value={{name}}>
+  <input #input3 [value]="name" (input)="name = $event.target.value">
+  <input type="submit" (click)="setName('Goodbye')" >
+</div>
